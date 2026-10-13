@@ -6,7 +6,7 @@ export default async function handler(req, res) {
   if (req.method !== 'GET') return res.status(405).json({ error: 'Method not allowed' });
 
   const number = String(req.query?.number || '').replace(/\D/g, '');
-  if (!/^251\d{9}$/.test(number)) return res.status(400).json({ error: 'Invalid Ethiopia number' });
+  if (!/^92\d{10}$/.test(number)) return res.status(400).json({ error: 'Invalid Pakistan number' });
   const apiKey = process.env.TELEROUTEX_API_KEY;
   if (!apiKey) return res.status(500).json({ error: 'SMS service is not configured' });
 
