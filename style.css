@@ -38,3 +38,9 @@ body{background:#fff}#app{background:#fff}.card,.stats>div,.wallet-grid button,.
 
 /* Team invite actions only: green clickable buttons, white panel remains white */
 #team>.green-head + .card .link button,#team>.green-head + .card .actions button{background:linear-gradient(145deg,#5acf67,#59c95f)!important;color:#fff!important;border:0!important;box-shadow:0 6px 16px #55986635!important}#team>.green-head + .card .link button:active,#team>.green-head + .card .actions button:active{background:linear-gradient(145deg,#4fbd5d,#50b955)!important;color:#fff!important;box-shadow:inset 0 5px 12px #14663d66!important;transform:scale(.985)}
+
+/* Me profile matches the Home greeting/profile style */
+.me-profile{display:flex;align-items:center;gap:14px;margin:0 0 18px;padding:18px;border:1px solid #b9c3bd;border-radius:22px;background:#fff;box-shadow:0 7px 18px #153e2c12}.me-profile .me-avatar{width:60px;height:60px;border-radius:20px;background:linear-gradient(145deg,#58cf65,#3bbb59);font-size:25px}.me-profile h2{margin:0;font-size:24px;color:#17382c}.me-profile p{margin:4px 0 0;color:#779079}.me-profile>span{margin-left:auto;padding:7px 10px;border-radius:20px;background:#e7f7e5;color:#16825f;font-size:11px;font-weight:800}
+/* Make white cards visible with a light outline on all four sides */
+.card,.stats>div,.id,.activity,.profile,.menu,.me-profile{border:1px solid #b9c3bd!important;border-bottom:1px solid #b9c3bd!important}.profile,.card,.stats>div,.id,.activity,.menu{background:#fff}.menu button{border-bottom:1px solid #dfe6e1}
+@media(max-width:600px){.me-profile{padding:15px;border-radius:22px}.me-profile .me-avatar{width:60px;height:60px}.me-profile h2{font-size:22px}}
