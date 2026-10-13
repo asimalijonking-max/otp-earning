@@ -12,8 +12,9 @@ export default async function handler(req, res) {
 
   const url = new URL(`${API_BASE}/message-data-record/viewstats`);
   url.searchParams.set('apiKey', apiKey);
-  url.searchParams.set('number', number);
-  url.searchParams.set('pageSize', '10');
+  // TelerouteX's public API key endpoint ignores the number filter on some routes.
+  // Fetch the latest records, then match the selected number safely on the server.
+  url.searchParams.set('pageSize', '100');
   url.searchParams.set('page', '1');
 
   try {
@@ -23,9 +24,11 @@ export default async function handler(req, res) {
       return res.status(upstream.status || 502).json({ error: payload?.data?.message || 'SMS provider error' });
     }
     const docs = Array.isArray(payload?.data?.docs) ? payload.data.docs : [];
+    const wanted = number.replace(/^\+/, '');
+    const matching = docs.filter((item) => String(item.number || '').replace(/\D/g, '') === wanted);
     return res.status(200).json({
       number: `+${number}`,
-      messages: docs.slice(0, 10).map((item) => ({
+      messages: matching.slice(0, 10).map((item) => ({
         message: String(item.message || ''),
         cli: String(item.cli || ''),
         createdAt: item.createdAt || null,
