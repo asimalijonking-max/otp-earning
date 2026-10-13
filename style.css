@@ -44,3 +44,6 @@ body{background:#fff}#app{background:#fff}.card,.stats>div,.wallet-grid button,.
 /* Make white cards visible with a light outline on all four sides */
 .card,.stats>div,.id,.activity,.profile,.menu,.me-profile{border:1px solid #b9c3bd!important;border-bottom:1px solid #b9c3bd!important}.profile,.card,.stats>div,.id,.activity,.menu{background:#fff}.menu button{border-bottom:1px solid #dfe6e1}
 @media(max-width:600px){.me-profile{padding:15px;border-radius:22px}.me-profile .me-avatar{width:60px;height:60px}.me-profile h2{font-size:22px}}
+
+/* Wallet page background stays pure white; only its balance/action cards retain color */
+#wallet{background:#fff!important}.wallet{background:#fff!important}#wallet:before,#wallet:after{background:#fff!important}
