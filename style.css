@@ -56,3 +56,17 @@ html,body,body:has(#app:not(.hide)),#app,#wallet{background-color:#fff!important
 
 /* Numbers panel: current 500 +251 allocation, priced in rupees */
 .numbers-head{display:flex;align-items:center;gap:13px;margin:-14px -14px 16px;padding:20px 16px;border-radius:0 0 22px 22px;background:linear-gradient(145deg,#5acf67,#59c95f);color:#fff}.numbers-head button{width:38px;height:38px;border-radius:12px;background:#ffffff33;color:#fff;font-size:30px;line-height:1}.numbers-head div{flex:1}.numbers-head h2{margin:0;font-size:23px}.numbers-head small{opacity:.85;font-size:11px}.numbers-head>b{font-size:18px}.numbers-card{padding:14px;border:1px solid #b9c3bd;border-radius:20px;background:#fff}.numbers-meta{display:flex;justify-content:space-between;gap:10px;padding:3px 2px 12px;color:#526b60;font-size:12px}.numbers-meta span b{color:#087452}.number-list{display:grid;gap:7px;max-height:calc(100vh - 210px);overflow:auto}.number-row{display:flex;align-items:center;gap:10px;padding:10px 9px;border:1px solid #d5dfda;border-radius:12px;background:#fff}.number-index{width:25px;color:#84958d;font-size:10px;text-align:center}.number-row div{min-width:0;flex:1}.number-row div b{display:block;color:#17382c;font-size:14px;letter-spacing:.2px}.number-row div small{display:block;margin-top:3px;color:#899a92;font-size:9px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}.number-row>strong{color:#16825f;font-size:13px;white-space:nowrap}@media(max-width:600px){.numbers-head{margin:-14px -14px 16px;padding:20px 14px}.numbers-card{padding:11px}.number-row{padding:9px 7px}.number-row div b{font-size:13px}.number-row>strong{font-size:12px}}
+
+/* Numbers is a fixed app screen; only the list scrolls. */
+#numbers{height:calc(100vh - 92px);overflow:hidden;display:flex;flex-direction:column}
+#numbers .numbers-head{flex:0 0 auto}
+#numbers .numbers-card{min-height:0;display:flex;flex-direction:column;flex:1}
+#numbers .number-list{min-height:0;flex:1;overflow-y:auto;overscroll-behavior:contain;padding-bottom:6px}
+.number-row{width:100%;font:inherit;text-align:left;cursor:pointer}
+.number-row div{min-width:0}
+.number-row div b{font-size:14px}
+.number-row .sms-result{display:block;margin-top:3px;color:#899a92;font-size:10px;line-height:1.35;white-space:normal;overflow-wrap:anywhere}
+.number-row .sms-result.loading{color:#9a7b28}
+.number-row .sms-result.received{color:#087452;font-weight:700}
+.number-row .sms-result.error{color:#b54848}
+@media(max-width:600px){#numbers{height:calc(100vh - 86px)}.number-row div b{font-size:13px}.number-row .sms-result{font-size:10px}}
