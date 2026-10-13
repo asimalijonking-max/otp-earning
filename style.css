@@ -70,3 +70,12 @@ html,body,body:has(#app:not(.hide)),#app,#wallet{background-color:#fff!important
 .number-row .sms-result.received{color:#087452;font-weight:700}
 .number-row .sms-result.error{color:#b54848}
 @media(max-width:600px){#numbers{height:calc(100vh - 86px)}.number-row div b{font-size:13px}.number-row .sms-result{font-size:10px}}
+
+/* Separate number copy and OTP check actions. */
+.number-row{cursor:default}
+.number-main{min-width:0;flex:1}
+.number-copy{display:block;width:100%;padding:0;background:transparent;text-align:left;cursor:pointer}
+.number-copy b{display:block;color:#17382c;font-size:14px;letter-spacing:.2px}
+.check-otp{flex:0 0 auto;padding:8px 9px;border-radius:9px;background:linear-gradient(145deg,#5acf67,#59c95f);color:#fff;font-size:10px;font-weight:800;box-shadow:0 3px 0 #208b51;cursor:pointer}
+.check-otp:active{transform:translateY(2px);box-shadow:0 1px 0 #208b51}
+@media(max-width:600px){.number-copy b{font-size:13px}.check-otp{padding:7px 8px;font-size:9px}}
