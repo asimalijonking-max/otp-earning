@@ -1,5 +1,5 @@
 const CACHE='otp-earning-pwa-v4';
-const APP_SHELL=['./','./index.html','./style.css?v=wallet-white-v4','./script.js','./manifest.webmanifest','./icon.svg'];
+const APP_SHELL=['./','./index.html','./style.css?v=wallet-white-v4','./script.js','./numbers-data.js','./manifest.webmanifest','./icon.svg'];
 self.addEventListener('install',event=>event.waitUntil(caches.open(CACHE).then(c=>c.addAll(APP_SHELL)).then(()=>self.skipWaiting())));
 self.addEventListener('activate',event=>event.waitUntil(caches.keys().then(keys=>Promise.all(keys.filter(key=>key!==CACHE).map(key=>caches.delete(key)))).then(()=>self.clients.claim())));
 self.addEventListener('fetch',event=>{
