@@ -17,3 +17,6 @@ body{background:#fff}#app{background:#fff}.card,.stats>div,.wallet-grid button,.
 
 /* Remove every bottom bar/border while keeping a soft all-around shadow */
 .grid button,.session,.wallet-grid button,#team>.card:first-of-type,.wallet-balance,.green-head{box-shadow:0 6px 16px #55986635!important}.grid button:active,.session:active,.wallet-grid button:active,.actions button:active,.link button:active{box-shadow:inset 0 5px 12px #14663d66!important}.card,.stats>div,.id,.activity,.profile{border-bottom:0!important}
+
+/* Team copy actions match the green action cards; add wallet-like spacing above invite card */
+#team>.card:first-of-type{margin-top:20px}#team>.card:first-of-type .link button,#team>.card:first-of-type .actions button{background:linear-gradient(145deg,#5acf67,#59c95f)!important;color:#fff!important;border:0!important;box-shadow:0 6px 16px #55986635!important}#team>.card:first-of-type .link button:active,#team>.card:first-of-type .actions button:active{box-shadow:inset 0 5px 12px #14663d66!important;transform:scale(.985)}
