@@ -50,3 +50,6 @@ body{background:#fff}#app{background:#fff}.card,.stats>div,.wallet-grid button,.
 
 /* Wallet screenshot fix: the entire page area below the cards must stay pure white */
 html,body,#app,main,#wallet,.wallet{background:#fff!important;background-image:none!important}#app{min-height:100vh}#wallet{min-height:calc(100vh - 70px)}
+
+/* Hard white viewport background for Wallet on every device */
+html,body,body:has(#app:not(.hide)),#app,#wallet{background-color:#fff!important;background-image:none!important}
