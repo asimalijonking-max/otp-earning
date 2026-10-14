@@ -79,3 +79,5 @@ html,body,body:has(#app:not(.hide)),#app,#wallet{background-color:#fff!important
 .check-otp{flex:0 0 auto;padding:8px 9px;border-radius:9px;background:linear-gradient(145deg,#5acf67,#59c95f);color:#fff;font-size:10px;font-weight:800;box-shadow:0 3px 0 #208b51;cursor:pointer}
 .check-otp:active{transform:translateY(2px);box-shadow:0 1px 0 #208b51}
 @media(max-width:600px){.number-copy b{font-size:13px}.check-otp{padding:7px 8px;font-size:9px}}
+
+.claim-otp{display:block;margin-top:7px;padding:8px 11px;border-radius:9px;background:linear-gradient(145deg,#5acf67,#59c95f);color:#fff;font-size:11px;font-weight:800;box-shadow:0 3px 0 #208b51;cursor:pointer}.claim-otp:disabled{opacity:.65;cursor:wait}
