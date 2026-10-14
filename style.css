@@ -99,3 +99,9 @@ html,body,body:has(#app:not(.hide)),#app,#wallet{background-color:#fff!important
 .card,.stats>div,.id,.profile,.me-profile,.menu,.numbers-card,.number-row,.account form,.wallet-balance,.green-head,.numbers-head,.home-balance,.grid button,.session,.wallet-grid button{border:1px solid #4c4c4c!important;border-bottom:1px solid #4c4c4c!important;box-shadow:0 6px 12px #00000045,0 14px 22px #00000022!important}
 .card,.stats>div,.id,.profile,.me-profile,.menu,.numbers-card,.number-row,.account form{background:#fff}
 .grid button,.session,.wallet-grid button,.wallet-balance,.green-head,.numbers-head,.home-balance{box-shadow:0 6px 12px #00000050,0 14px 22px #00000026,inset 0 1px 0 #ffffff38!important}
+
+/* Remove visible card outlines; keep only a soft shadow. Match Home profile to Me profile. */
+.card,.stats>div,.id,.profile,.me-profile,.menu,.numbers-card,.number-row,.account form,.wallet-balance,.green-head,.numbers-head,.home-balance,.grid button,.session,.wallet-grid button{border:0!important;border-bottom:0!important;box-shadow:0 7px 18px #153e2c22!important}
+.card,.stats>div,.id,.profile,.me-profile,.menu,.numbers-card,.number-row,.account form{background:#fff}
+.home-profile{margin:4px 0 16px;padding:8px 0 20px;border:0!important;background:transparent!important;box-shadow:none!important}
+.home-balance,.wallet-balance,.green-head,.numbers-head,.grid button,.session,.wallet-grid button{box-shadow:0 7px 18px #153e2c30,inset 0 1px 0 #ffffff35!important}
