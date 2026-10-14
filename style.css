@@ -94,3 +94,8 @@ html,body,body:has(#app:not(.hide)),#app,#wallet{background-color:#fff!important
 .grid button,.session,.wallet-grid button,.home-balance,.wallet-balance,.green-head,.numbers-head,#team>.card:first-of-type,.auth-btn,.save,.check-otp,.claim-otp,.link button,.actions button{box-shadow:0 5px 14px #315d4538,inset 0 1px 0 #ffffff45!important}
 .grid button:active,.session:active,.wallet-grid button:active,.auth-btn:active,.save:active,.check-otp:active,.claim-otp:active,.link button:active,.actions button:active{transform:scale(.985);box-shadow:inset 0 4px 11px #14663d66!important}
 .home-balance,.wallet-balance{box-shadow:0 6px 16px #315d4540,inset 0 1px 0 #ffffff55!important}
+
+/* Card edge treatment: dark outline with a soft all-around shadow, no bottom bar */
+.card,.stats>div,.id,.profile,.me-profile,.menu,.numbers-card,.number-row,.account form,.wallet-balance,.green-head,.numbers-head,.home-balance,.grid button,.session,.wallet-grid button{border:1px solid #4c4c4c!important;border-bottom:1px solid #4c4c4c!important;box-shadow:0 6px 12px #00000045,0 14px 22px #00000022!important}
+.card,.stats>div,.id,.profile,.me-profile,.menu,.numbers-card,.number-row,.account form{background:#fff}
+.grid button,.session,.wallet-grid button,.wallet-balance,.green-head,.numbers-head,.home-balance{box-shadow:0 6px 12px #00000050,0 14px 22px #00000026,inset 0 1px 0 #ffffff38!important}
