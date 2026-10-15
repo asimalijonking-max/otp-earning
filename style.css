@@ -117,3 +117,7 @@ body{background:#fff!important}.home-profile{align-items:center;gap:16px;margin:
 /* Team page green surfaces use the same reference green as Home. */
 #team .green-head,#team>.card:first-of-type,#team>.card:first-of-type .link button,#team>.card:first-of-type .actions button{background:linear-gradient(145deg,#28df43,#0bb33d)!important;color:#fff!important;box-shadow:inset 0 2px 0 #ffffff55,0 8px 16px #078b3745!important}
 #team>.card:first-of-type label{color:#fff!important}
+
+/* Reference green action buttons on Team page */
+#team .actions button{background:linear-gradient(145deg,#28df43,#0bb33d)!important;color:#fff!important;border:0!important;box-shadow:inset 0 2px 0 #ffffff55,0 8px 16px #078b3745!important;font-weight:900}
+#team .actions button:active{box-shadow:inset 0 4px 11px #14663d66!important;transform:scale(.985)}
