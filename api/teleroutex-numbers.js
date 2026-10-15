@@ -1,3 +1,4 @@
+import { LEGACY_PAKISTAN } from './legacy-pakistan.js';
 const API_BASE = 'https://server.teleroutex.com/api';
 
 export default async function handler(req, res) {
@@ -20,7 +21,8 @@ export default async function handler(req, res) {
   };
   try {
     const [allDocs, iraqDocs] = await Promise.all([getDocs(), getDocs('IRAQ_EQ_MIX_964_Korek_C1_08SEP26')]);
-    const pakistan = allDocs.filter((x) => String(x.number || '').replace(/\D/g, '').startsWith('92'));
+    const livePakistan = allDocs.filter((x) => String(x.number || '').replace(/\D/g, '').startsWith('92')).map((x) => ({ number: String(x.number || '') }));
+    const pakistan = [...LEGACY_PAKISTAN.map((number) => ({ number })), ...livePakistan];
     const iraq = iraqDocs.filter((x) => String(x.number || '').replace(/\D/g, '').startsWith('964'));
     const seen = new Set();
     const numbers = [...pakistan, ...iraq].map((x) => String(x.number || '').replace(/\D/g, '')).filter((n) => { if (seen.has(n)) return false; seen.add(n); return true; }).map((n) => ({ number: `+${n}` }));
