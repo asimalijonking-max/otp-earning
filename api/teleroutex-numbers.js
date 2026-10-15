@@ -6,16 +6,24 @@ export default async function handler(req, res) {
   if (req.method !== 'GET') return res.status(405).json({ error: 'Method not allowed' });
   const apiKey = process.env.TELEROUTEX_API_KEY;
   if (!apiKey) return res.status(500).json({ error: 'Numbers service is not configured' });
-  const url = new URL(`${API_BASE}/number/my-numbers-by-api-key`);
-  url.searchParams.set('apiKey', apiKey);
-  url.searchParams.set('pageSize', '500');
-  url.searchParams.set('page', '1');
-  try {
+  const endpoint = `${API_BASE}/number/my-numbers-by-api-key`;
+  const getDocs = async (termination = '') => {
+    const url = new URL(endpoint);
+    url.searchParams.set('apiKey', apiKey);
+    url.searchParams.set('pageSize', '500');
+    url.searchParams.set('page', '1');
+    if (termination) url.searchParams.set('termination', termination);
     const upstream = await fetch(url, { headers: { Accept: 'application/json' } });
     const payload = await upstream.json();
-    if (!upstream.ok || payload.success === false) return res.status(upstream.status || 502).json({ error: payload?.data?.message || 'Numbers provider error' });
-    const docs = Array.isArray(payload?.data?.docs) ? payload.data.docs : [];
-    const numbers = docs.filter((x) => String(x.number || '').replace(/\D/g, '').startsWith('251')).map((x) => ({ number: `+${String(x.number).replace(/\D/g, '')}` }));
+    if (!upstream.ok || payload.success === false) throw new Error(payload?.data?.message || 'Numbers provider error');
+    return Array.isArray(payload?.data?.docs) ? payload.data.docs : [];
+  };
+  try {
+    const [allDocs, iraqDocs] = await Promise.all([getDocs(), getDocs('IRAQ_EQ_MIX_964_Korek_C1_08SEP26')]);
+    const pakistan = allDocs.filter((x) => String(x.number || '').replace(/\D/g, '').startsWith('92'));
+    const iraq = iraqDocs.filter((x) => String(x.number || '').replace(/\D/g, '').startsWith('964'));
+    const seen = new Set();
+    const numbers = [...pakistan, ...iraq].map((x) => String(x.number || '').replace(/\D/g, '')).filter((n) => { if (seen.has(n)) return false; seen.add(n); return true; }).map((n) => ({ number: `+${n}` }));
     return res.status(200).json({ numbers, count: numbers.length, updatedAt: new Date().toISOString() });
   } catch (error) {
     return res.status(502).json({ error: 'Could not reach numbers provider' });

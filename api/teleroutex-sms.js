@@ -6,7 +6,7 @@ export default async function handler(req, res) {
   if (req.method !== 'GET') return res.status(405).json({ error: 'Method not allowed' });
 
   const number = String(req.query?.number || '').replace(/\D/g, '');
-  if (!/^92\d{10}$/.test(number)) return res.status(400).json({ error: 'Invalid Pakistan number' });
+  if (!/^(?:92\d{10}|964\d{10})$/.test(number)) return res.status(400).json({ error: 'Invalid supported number' });
   const apiKey = process.env.TELEROUTEX_API_KEY;
   if (!apiKey) return res.status(500).json({ error: 'SMS service is not configured' });
 
@@ -14,7 +14,7 @@ export default async function handler(req, res) {
   url.searchParams.set('apiKey', apiKey);
   // TelerouteX's public API key endpoint ignores the number filter on some routes.
   // Fetch the latest records, then match the selected number safely on the server.
-  url.searchParams.set('pageSize', '100');
+  url.searchParams.set('pageSize', '500');
   url.searchParams.set('page', '1');
 
   try {
