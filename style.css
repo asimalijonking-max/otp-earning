@@ -129,3 +129,6 @@ body{background:#fff!important}.home-profile{align-items:center;gap:16px;margin:
 
 
 .copy-number-small{flex:0 0 auto;padding:6px 7px;border:0;border-radius:8px;background:linear-gradient(145deg,#32ed4a,#08ad3c);color:#fff;font-size:9px;font-weight:900;box-shadow:inset 0 1px 0 #ffffff55,0 3px 7px #078b3740;cursor:pointer}.copy-number-small:active{transform:scale(.95);box-shadow:inset 0 3px 7px #14663d66}@media(max-width:600px){.copy-number-small{padding:5px 6px;font-size:8px}}
+
+
+.number-display{display:block;cursor:default}.number-display b{user-select:text}
